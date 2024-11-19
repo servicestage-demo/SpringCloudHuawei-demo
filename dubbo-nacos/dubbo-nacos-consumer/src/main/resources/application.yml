@@ -1,0 +1,18 @@
+server:
+  # 服务端口
+  port: 8081
+spring:
+  application:
+    name: dubbo-nacos-consumer
+dubbo:
+  application:
+    qos-enable: false
+    name: multi-registry-consumer
+  registries:
+    registry1:
+      address: ${DUBBO_REGISTRY_ADDRESS_1:nacos://127.0.0.1:8848}
+    registry2:
+      address: ${DUBBO_REGISTRY_ADDRESS_2:nacos://127.0.0.1:8848}
+
+  consumer:
+    loadbalance: roundrobin
